@@ -19,7 +19,7 @@ class Program
         // Declare Hidden Number
         int hidden = randomGenerator.Next(1, magic + 1);
 
-        
+
 
         // False Guess Loop
         while (guess != hidden)

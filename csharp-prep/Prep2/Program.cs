@@ -25,16 +25,20 @@ class Program
         char letter = 'A';
 
         // Grade Selection
-        if (grade <= 60) {
+        if (grade <= 60)
+        {
             letter = 'F';
         }
-        else if (grade <= 70) {
+        else if (grade <= 70)
+        {
             letter = 'D';
         }
-        else if (grade <= 80) {
+        else if (grade <= 80)
+        {
             letter = 'C';
         }
-        else if (grade <= 90) {
+        else if (grade <= 90)
+        {
             letter = 'B';
         }
 
