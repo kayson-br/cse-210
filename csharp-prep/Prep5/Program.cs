@@ -29,7 +29,7 @@ class Program
 
     static int PromptUserNumber()
     {
-        Console.WriteLine("What is your name? ");
+        Console.WriteLine("What is your favorite number? ");
         string favString = Console.ReadLine();
         int favNumber = int.Parse(favString);
         return favNumber;
@@ -42,18 +42,19 @@ class Program
         birthYear = int.Parse(birthString);
     }
 
-    static int SquareNumber()
+    static int SquareNumber(int favNumber)
     {
-        Console.WriteLine("What nunber will you square (int)? ");
-        string numString = Console.ReadLine();
-        int number = int.Parse(numString);
-        int square = number * number;
+        int square = favNumber * favNumber;
         return square;
     }
 
-    static void DisplayResult()
+    static void DisplayResult(string name, int square, int birthYear)
     {
-        
+        Console.WriteLine($"Your name is {name}.");
+        Console.WriteLine($"Your favorite number squared is {square}");
+        int age = 2025 - birthYear;
+        Console.WriteLine($"You will be {age} years old this year.");
+
     }
     static void Main(string[] args)
     {
@@ -61,10 +62,8 @@ class Program
         string userName = PromptUserName();
         int favNumber = PromptUserNumber();
         PromptUserBirthYear(out int birthYear);
-        int square = SquareNumber();
-
-
-
+        int square = SquareNumber(favNumber);
+        DisplayResult(userName, square, birthYear);
 
     }
 }
