@@ -26,7 +26,7 @@ class Program
         // Display Resume
         resume1.Display();
 
-        // Display Specified Job Title
+        // Display Specified Job title
         Console.WriteLine($"\n{resume1._jobs[0]._jobTitle}");
 
     }
