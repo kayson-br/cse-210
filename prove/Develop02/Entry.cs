@@ -37,7 +37,7 @@ public class Entry
 
     public void Display()
     {
-        Console.WriteLine($"Date: {_date} - Prompt: {_prompt}\n{_promptInput}");
+        Console.WriteLine($"Date: {_date} - Prompt: {_prompt}\n{_promptInput}\n");
     }
 }
 
