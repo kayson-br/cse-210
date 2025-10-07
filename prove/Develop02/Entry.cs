@@ -8,6 +8,7 @@ public class Entry
     public string _promptInput;
     public string _date;
 
+
     // PROGRAM
     public Entry()
     {
@@ -30,6 +31,8 @@ public class Entry
         _date = theCurrentTime.ToShortDateString();
     }
 
+
+    // DECLARE BEHAVIORS
     public void UserInput()
     {
         _promptInput = Console.ReadLine();
