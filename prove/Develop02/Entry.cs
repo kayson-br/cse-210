@@ -42,7 +42,6 @@ public class Entry
 }
 
 /*
-
 MAIN
 Menu 
 1. Write       → Create New Entry Create ENTRY variable function and add to default JOURNAL list
@@ -59,13 +58,9 @@ ENTRY
 - .Display ENTRY attributes
 
 JOURNAL
-List of Entries
-Add Entry to list 
-Display Entries
-Save Entries to a file (prompt file to user) [Include edited date]
-Load Entries from journal (replace all entries here) [display last edited date]
-
-PROMPT
-List of prompts
-Random selection (return selection)
+* List of Entries
+- Add Entry to list 
+- Display Entries
+- Save Entries to a file (prompt file to user) [Include edited date]
+- Load Entries from journal (replace all entries here) [display last edited date]
 */
