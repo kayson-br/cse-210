@@ -44,6 +44,7 @@ public class Entry
     }
 }
 
+
 /*
 MAIN
 Menu 
@@ -61,9 +62,9 @@ ENTRY
 - .Display ENTRY attributes
 
 JOURNAL
-* List of Entries
-- Add Entry to list 
-- Display Entries
-- Save Entries to a file (prompt file to user) [Include edited date]
-- Load Entries from journal (replace all entries here) [display last edited date]
+* _entries
+- .AddEntry(Entry) 
+- .DisplayEntries
+- .SaveToFile(List<Entry>) (prompt filename to user)
+- .LoadFromFile (replace all entries here) [display last edited date]
 */
