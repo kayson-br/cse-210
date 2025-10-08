@@ -63,8 +63,9 @@ ENTRY
 
 JOURNAL
 * _entries
+- .ClearEntries
 - .AddEntry(Entry) 
 - .DisplayEntries
-- .SaveToFile(List<Entry>) (prompt filename to user)
+- .SaveToFile
 - .LoadFromFile (replace all entries here) [display last edited date]
 */

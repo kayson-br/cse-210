@@ -9,12 +9,13 @@ class Program
         int option = 1;
         do
         {
-            Console.WriteLine("MENU\n",
-                              "1. Write\n",
-                              "2. Display\n",
-                              "3. Load\n",
-                              "4. Save\n",
-                              "5. Quit\n");
+            Console.WriteLine("\nMENU\n"+
+                              "1. Write\n"+
+                              "2. Display\n"+
+                              "3. Load\n"+
+                              "4. Save\n"+
+                              "5. Clear Entries\n"+
+                              "6. Quit");
 
             option = int.Parse(Console.ReadLine());
 
@@ -22,31 +23,34 @@ class Program
             switch (option)
             {
                 case 1:
+                    // Create Entry w/ input
                     Entry entry = new Entry();
-                    Console.Write($"{entry._prompt}\n  > ");
+                    Console.Write($"\n{entry._prompt}\n  > ");
                     entry._promptInput = Console.ReadLine();
+                    // Add Entry to Journal
                     journal.AddEntry(entry);
                     Console.WriteLine("Recording Response...");
-                    journal.DisplayEntries();
-
                     break;
                 case 2:
-                    Console.Write("");
+                    journal.DisplayEntries();
                     break;
                 case 3:
-                    Console.Write("");
+                    journal.LoadFromFile();
                     break;
                 case 4:
-                    Console.Write("");
+                    journal.SaveToFile();
                     break;
                 case 5:
+                    journal.ClearEntries();
+                    break;
+                case 6:
                     break;
                 default:
-                    Console.Write("Please select an option.");
+                    Console.Write("\nPlease select an option.\n");
                     break;
             }
 
-        } while (option != 5);
+        } while (option != 6);
     }
 }
 
@@ -69,8 +73,9 @@ ENTRY
 
 JOURNAL
 * _entries
+- .ClearEntries
 - .AddEntry(Entry) 
 - .DisplayEntries
-- .SaveToFile(List<Entry>) (prompt filename to user)
+- .SaveToFile
 - .LoadFromFile (replace all entries here) [display last edited date]
 */

@@ -12,6 +12,11 @@ public class Journal
 
     }
 
+    public void ClearEntries()
+    {
+        List<Entry> entries = new List<Entry>();
+        _entries = entries;
+    }
 
     // DECLARE BEHAVIORS
     public void AddEntry(Entry newEntry)
@@ -21,19 +26,21 @@ public class Journal
 
     public void DisplayEntries()
     {
+        Console.WriteLine("");
         foreach (Entry entry in _entries)  // int i = 0; i < _entries.Count; i++
         {
             entry.Display();
         }
     }
 
-    public void SaveToFile(List<Entry> entries)
+    public void SaveToFile()
     {
         // Input Filename
-        Console.Write("Please input a file name:\n  > ");
+        Console.Write("\nPlease input a file name:\n  > ");
         string filename = Console.ReadLine();
 
         // Write File
+        Console.WriteLine($"Saving entries to {filename}...");
         using (StreamWriter outputFile = new StreamWriter(filename))
         {
             foreach (Entry entry in _entries)
@@ -46,7 +53,7 @@ public class Journal
     public void LoadFromFile()
     {
         // Input Filename
-        Console.Write("Please input a file name:\n  > ");
+        Console.Write("\nPlease input a file name:\n  > ");
         string filename = Console.ReadLine();
 
         // Create list of entries
@@ -54,6 +61,7 @@ public class Journal
         string[] lines = System.IO.File.ReadAllLines(filename);
 
         // Parse journal file to entries list
+        Console.WriteLine($"Loading in entries from {filename}...");
         foreach (string line in lines)
         {
             string[] entryAttributes = line.Split("~"); // "entry._date" "entry._prompt" "entry._promptInput"
@@ -91,8 +99,9 @@ ENTRY
 
 JOURNAL
 * _entries
+- .ClearEntries
 - .AddEntry(Entry) 
 - .DisplayEntries
-- .SaveToFile(List<Entry>) (prompt filename to user)
+- .SaveToFile
 - .LoadFromFile (replace all entries here) [display last edited date]
 */
