@@ -12,6 +12,7 @@ public class Journal
 
     }
 
+    //Extra Credit Module
     public void ClearEntries()
     {
         List<Entry> entries = new List<Entry>();

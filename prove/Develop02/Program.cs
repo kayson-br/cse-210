@@ -41,6 +41,7 @@ class Program
                     journal.SaveToFile();
                     break;
                 case 5:
+                    //Extra Credit Module
                     journal.ClearEntries();
                     break;
                 case 6:
