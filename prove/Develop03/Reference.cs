@@ -25,6 +25,7 @@ public class Reference
         // Proverbs 3
         List<string> Proverbs_3 = new List<string>
         {
+            "My son, forget not my law; but let thine heart keep my commandments.",
             "Trust in the Lord with all thine heart; and lean not unto thine own understanding.",
             "In all thy ways acknowledge him, and he shall direct thy paths."
         };
