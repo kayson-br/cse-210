@@ -6,7 +6,6 @@ public class Scripture
     private int _wordTotal = 0;
     private Reference _reference = new Reference();
     private List<List<Word>> _scripture = new List<List<Word>>();
-
     private List<Word> _scripturePrint = new List<Word>();
     private List<int> _scriptureShown = new List<int>();
 
@@ -31,19 +30,6 @@ public class Scripture
             _scripture.Add(wordList);
         }
 
-        // _scripturePrint
-        /*
-        for (int verse_i = 0; verse_i < _scripture.Count(); verse_i++)
-        {
-            List<Word> verse = new List<Word>();
-            verse = _scripture[verse_i];
-            for (int word_i = 0; word_i < verse.Count(); word_i++)
-            {
-                _scripturePrint
-            }
-        }
-        */
-
         // _scriptureShown
         for (int i = 0; i < _wordTotal; i++)
         {
@@ -51,6 +37,7 @@ public class Scripture
         }
     }
 
+    // BEHAVIORS
     public void Display()
     {
         Console.Clear();

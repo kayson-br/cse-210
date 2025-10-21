@@ -12,8 +12,6 @@ public class Word
         _word = input;
     }
 
-
-
     // BEHAVIORS
     public void Hide()
     {
@@ -21,11 +19,11 @@ public class Word
         _state = false;
     }
 
-    // GET METHODS
     public bool GetState()
     {
         return _state;
     }
+    
     public string GetWord()
     {
         return _word;

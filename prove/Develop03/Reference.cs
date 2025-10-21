@@ -3,9 +3,11 @@ using System;
 
 public class Reference
 {
+    // ATTRIBUTES
     private List<string> _scripture = new List<string>();
     private string _reference = "";
 
+    // CONSTRUCTOR
     public Reference()
     {
         Random rand = new Random();
@@ -60,6 +62,7 @@ public class Reference
         }
     }
 
+    // BEHAVIORS
     public List<string> GetScripture()
     {
         return _scripture;
