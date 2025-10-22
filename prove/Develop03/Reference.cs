@@ -8,6 +8,8 @@ public class Reference
     private string _reference = "";
 
     // CONSTRUCTOR
+    // Extra Credit: Constructor not only allows for implementation of verse range,
+    //               but also randmizes chosen scripture and verse range. 
     public Reference()
     {
         Random rand = new Random();
