@@ -3,7 +3,6 @@ using System;
 public class Word
 {
     // ATTRIBUTES
-    private bool _state = true;
     private string _word = "";
 
     // CONSTRUCTOR
@@ -16,14 +15,8 @@ public class Word
     public void Hide()
     {
         _word = new string('_', _word.Length);
-        _state = false;
     }
 
-    public bool GetState()
-    {
-        return _state;
-    }
-    
     public string GetWord()
     {
         return _word;
