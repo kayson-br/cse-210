@@ -15,6 +15,7 @@ class Activity
     public void DisplayStart()
     {
         // Initial Display
+        Console.Clear();
         Console.WriteLine($"Welcome to the {_name}.\n\n{_description}\n\nHow long, in seconds, would you like your session? ");
         string timeString = Console.ReadLine();
         _time = int.Parse(timeString);
@@ -36,9 +37,8 @@ class Activity
         {
             foreach (string s in animation)
             {
-                Console.Write($"{s}");
+                Console.Write($"\b{s}");
                 Thread.Sleep(100);
-                Console.Write("\b \b");
             }
         }
 
@@ -47,7 +47,7 @@ class Activity
     public void DisplayEnd()
     {
         // Initial Congratulations
-        Console.WriteLine("Well Done!\n");
+        Console.WriteLine("\nWell Done!");
         Load();
 
         // Final End Display

@@ -20,11 +20,10 @@ class BreathingActivity : Activity
 
         while (DateTime.Now < endTime)
         {
-            Console.WriteLine("Breath in... ");
+            Console.WriteLine("\nBreath in... ");
             Counter();
             Console.WriteLine("Breath out... ");
             Counter();
-            Console.WriteLine();
         }
 
         //DisplayEnd
@@ -35,9 +34,8 @@ class BreathingActivity : Activity
     {
         for (int i=4; i > 0; i--)
         {
-            Console.Write($"{i}");
+            Console.Write($"\b{i}");
             Thread.Sleep(1000);
-            Console.Write("\b \b");
         }
     }
 
