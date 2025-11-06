@@ -21,6 +21,7 @@ class Activity
 
         // Loading
         Console.Clear();
+        Console.WriteLine("Get ready...");
         Load();
     }
 

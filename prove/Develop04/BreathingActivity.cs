@@ -10,7 +10,35 @@ class BreathingActivity : Activity
 
     public void Activity()
     {
+        //DisplayStart
+        DisplayStart();
 
+
+        //Run Activity
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(_time);
+
+        while (DateTime.Now < endTime)
+        {
+            Console.WriteLine("Breath in... ");
+            Counter();
+            Console.WriteLine("Breath out... ");
+            Counter();
+            Console.WriteLine();
+        }
+
+        //DisplayEnd
+        DisplayEnd();
+    }
+
+    private static void Counter()
+    {
+        for (int i=4; i > 0; i--)
+        {
+            Console.Write($"{i}");
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+        }
     }
 
     private static string SetName()
