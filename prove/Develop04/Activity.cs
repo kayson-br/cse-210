@@ -45,7 +45,14 @@ class Activity
 
     public void DisplayEnd()
     {
+        // Initial Congratulations
+        Console.WriteLine("Well Done!\n");
+        Load();
 
+        // Final End Display
+        Console.Write($"You have completed {_time} seconds of the {_name}.");
+        Load();
+        Console.Clear();
     }
 
 }
