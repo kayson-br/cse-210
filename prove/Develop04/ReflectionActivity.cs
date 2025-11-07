@@ -14,7 +14,7 @@ class ReflectionActivity : Activity
         DisplayStart();
 
         // Select random prompt
-        List<string> prompts = new List<string> {"did something really difficult",  //Think of a time when you
+        List<string> prompts = new List<string> {"did something really difficult",  
                                                 "felt productive and accomplished",
                                                 "made someone else happy"};
         Random random = new Random();
