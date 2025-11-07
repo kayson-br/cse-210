@@ -5,14 +5,13 @@ class BreathingActivity : Activity
 
     public BreathingActivity() : base(SetName(), SetDescription())
     {
-        // input time
+      
     }
 
     public void Activity()
     {
         //DisplayStart
         DisplayStart();
-
 
         //Run Activity
         DateTime startTime = DateTime.Now;

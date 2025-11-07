@@ -26,11 +26,11 @@ class Activity
         Load();
     }
 
-    private static void Load()
+    public void Load(int time = 4)
     {
         
         DateTime startTime = DateTime.Now;
-        DateTime endTime = startTime.AddSeconds(4);
+        DateTime endTime = startTime.AddSeconds(time);
         List<string> animation = new List<string> { "|", "/", "-", "\\"};
 
         while (DateTime.Now < endTime)
