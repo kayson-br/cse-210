@@ -40,6 +40,7 @@ class Activity
                 Console.Write($"\b{s}");
                 Thread.Sleep(100);
             }
+            Console.Write($"\b ");
         }
 
     }
@@ -51,7 +52,7 @@ class Activity
         Load();
 
         // Final End Display
-        Console.Write($"You have completed {_time} seconds of the {_name}.");
+        Console.WriteLine($"\nYou have completed {_time} seconds of the {_name}.");
         Load();
         Console.Clear();
     }

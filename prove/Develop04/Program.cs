@@ -39,7 +39,5 @@ class Program
             Console.Clear();
         }
 
-        //Create menu
-        //Select Activity.Program()
     }
 }
