@@ -20,7 +20,7 @@ class ReflectionActivity : Activity
         Random random = new Random();
         int randomIndex = random.Next(0, 3);
         Console.WriteLine("Consider the following prompt:\n");
-        Console.WriteLine($" --- Think of a time when you {prompts[randomIndex]}. --- \n");
+        Console.WriteLine($" --- Think of a time when you {prompts[randomIndex]} --- \n");
 
         // Press enter to start
         Console.WriteLine("When you have something in mind, press enter to continue.");
@@ -40,23 +40,29 @@ class ReflectionActivity : Activity
 
         while (DateTime.Now < endTime)
         {
-            /*
-                Loader = 4 seconds (create optional parameter for loader)
-                if time is greater than 3 mini_prompts (12 seconds), divide total time by 3 for loader
-                if time is smaller than 12 seconds, divide total time by 2 for loader, only print 2 prompts
-                (else)if time is smaller than 8 seconds, loader = total time, only print 1 prompt
-            */
-            if (totalTime > 12)
+            if (totalTime >= 12)
             {
-                
+                Console.Write("\t> How did you feel afterwards?  ");
+                Load(totalTime/3);
+                Console.Write("\n\t> Why do you think you felt this way?  ");
+                Load(totalTime/3);
+                Console.Write("\n\t> What can you take away from this into the future?  ");
+                Load(totalTime/3);
+                break;
             }
-            else if (totalTime < 12)
+            else if (totalTime >= 8)
             {
-                
+                Console.Write("\t> How did you feel afterwards?  ");
+                Load(totalTime/2);
+                Console.Write("\n\t> Why do you think you felt this way?  ");
+                Load(totalTime / 2);
+                break;
             }
             else
             {
-                
+                Console.Write("\t> How did you feel afterwards?  ");
+                Load(totalTime);
+                break;
             }
 
         }

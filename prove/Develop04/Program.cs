@@ -25,10 +25,12 @@ class Program
                     program = 0;
                     break;
                 case 1:
-                    BreathingActivity activity = new BreathingActivity();
-                    activity.Activity();
+                    BreathingActivity activity1 = new BreathingActivity();
+                    activity1.Activity();
                     break;
                 case 2:
+                    ReflectionActivity activity2 = new ReflectionActivity();
+                    activity2.Activity();
                     break;
                 case 3:
                     break;
