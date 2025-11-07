@@ -71,16 +71,6 @@ class ReflectionActivity : Activity
         DisplayEnd();
     }
 
-    private static void Counter()
-    {
-        for (int i = 4; i > 0; i--)
-        {
-            Console.Write($"\b{i}");
-            Thread.Sleep(1000);
-        }
-        Console.Write($"\b \b");
-    }
-
     private static string SetName()
     {
         return "Reflection Activity";

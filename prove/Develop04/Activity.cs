@@ -57,4 +57,14 @@ class Activity
         Console.Clear();
     }
 
+    public void Counter()
+    {
+        for (int i = 4; i > 0; i--)
+        {
+            Console.Write($"\b{i}");
+            Thread.Sleep(1000);
+        }
+        Console.Write($"\b \b");
+    }
+
 }
