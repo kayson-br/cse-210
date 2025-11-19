@@ -44,7 +44,6 @@ abstract class Goal
 
 
     // ABSTRACTS
-    public abstract void SaveToFile();
-    public abstract void LoadFromFile();
-    public abstract void PrintProgress();
+    public abstract List<string> FileFormat();
+    public abstract string PrintProgress();
 }

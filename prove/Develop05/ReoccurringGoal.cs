@@ -35,17 +35,15 @@ class ReoccurringGoal : Goal
     }
 
     // OVERRIDES
-    public override void SaveToFile ()
+    // GoalType, _name, _description, _progressPoints, _points, _progressNumerator, _progressDenominator
+    public override List<string> FileFormat () // POSSIBLY USE GETTERS FOR VARIABLES
     {
-        
+        List<string> load = new List<string>{"ReoccurringGoal", GetName(), GetDescription(), _porgressPoints, 
+                                            GetPoints(), _progressNumerator, _progressDenominator}; 
+        return load;
     }
 
-    public override void LoadFromFile ()
-    {
-        
-    }
-
-    public override void PrintProgress ()
+    public override string PrintProgress ()
     {
         
     }
