@@ -3,10 +3,10 @@ using System;
 class SimpleGoal : Goal
 {
     // CONSTRUCTORS
-    public SimpleGoal(string checkBox, int points, string name, string description) : 
-    base(checkBox, points, name, description)
+    public SimpleGoal(int points, string name, string description) : 
+    base(points, name, description)
     {
-        //put in code to auto-set some parameters
+
     }
 
 

@@ -3,15 +3,14 @@ using System;
 abstract class Goal
 {
     // ATTRIBUTES
-    private string _checkBox = "";
+    private string _checkBox = " ";
     private int _points;
     private string _name;
     private string _description; 
 
 
     // CONSTRUCTOR
-    public Goal(string checkBox, int points, 
-                string name, string description)
+    public Goal(int points, string name, string description)
     {
         
     }

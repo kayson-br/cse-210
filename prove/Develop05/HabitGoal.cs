@@ -3,10 +3,10 @@ using System;
 class HabitGoal : Goal
 {
     // CONSTRUCTORS
-    public HabitGoal(string checkBox, int points, string name, string description) : 
-    base(checkBox, points, name, description)
+    public HabitGoal(int points, string name, string description) : 
+    base(points, name, description)
     {
-        //put in code to auto-set some parameters
+
     }
 
 

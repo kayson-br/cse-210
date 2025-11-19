@@ -2,13 +2,37 @@ using System;
 
 class ReoccurringGoal : Goal
 {
+    // ATTRIBUTES
+    private int _progressNumerator;
+    private int _progressDenominator;
+    private int _progressPoints;
+
+
     // CONSTRUCTORS
-    public ReoccurringGoal(string checkBox, int points, string name, string description) : 
-    base(checkBox, points, name, description)
+    public ReoccurringGoal(int points, string name, string description, 
+                            int numerator, int denominator, int pointBonus) : 
+    base(points, name, description)
     {
-        //put in code to auto-set some parameters
+        _progressNumerator = numerator;
+        _progressDenominator = denominator;
+        _progressPoints = pointBonus;
     }
 
+
+    // MODULES
+    public void SetProgress(string input)
+    {
+        int add = int.Parse(input);
+
+        if (add + _progressNumerator >= _progressDenominator)
+        {
+            _progressNumerator = _progressDenominator;
+        }
+        else if (add + _progressNumerator <= 0)
+        {
+            _progressNumerator = 0;
+        }
+    }
 
     // OVERRIDES
     public override void SaveToFile ()
