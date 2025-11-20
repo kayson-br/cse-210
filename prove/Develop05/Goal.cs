@@ -12,7 +12,9 @@ abstract class Goal
     // CONSTRUCTOR
     public Goal(int points, string name, string description)
     {
-        
+        _points = points;
+        _name = name;
+        _description = description;
     }
 
 

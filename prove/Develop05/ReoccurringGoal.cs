@@ -36,10 +36,16 @@ class ReoccurringGoal : Goal
 
     // OVERRIDES
     // GoalType, _name, _description, _progressPoints, _points, _progressNumerator, _progressDenominator
-    public override List<string> FileFormat () // POSSIBLY USE GETTERS FOR VARIABLES
+    public override List<string> FileFormat ()
     {
-        List<string> load = new List<string>{"ReoccurringGoal", GetName(), GetDescription(), _porgressPoints, 
-                                            GetPoints(), _progressNumerator, _progressDenominator}; 
+        string progressPoints = _progressPoints.ToString();
+        string progressNumerator = _progressNumerator.ToString();
+        string progressDenominator = _progressDenominator.ToString();
+        string points = GetPoints().ToString();
+
+        List<string> load = new List<string>{"ReoccurringGoal", GetName(), GetDescription(), progressPoints, 
+                                            points, progressNumerator, progressDenominator}; 
+
         return load;
     }
 

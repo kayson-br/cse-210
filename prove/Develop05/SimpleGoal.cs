@@ -11,12 +11,7 @@ class SimpleGoal : Goal
 
 
     // OVERRIDES
-    public override void SaveToFile ()
-    {
-        
-    }
-
-    public override void LoadFromFile ()
+    public override List<string> FileFormat ()
     {
         
     }
