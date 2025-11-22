@@ -20,7 +20,6 @@ class List
             string description;
             int points;
             
-
             Console.Clear();
             Console.Write("\nSelect a goal type:\n" +
                             "\t1. Simple Goal\n" +
@@ -44,6 +43,7 @@ class List
                     SimpleGoal sGoal = new SimpleGoal(points, name, description);
                     _goalList.Add(sGoal);
 
+                    program = 0;
                     Console.Clear();
                     Console.WriteLine("Goal Added\n");
                     break;
@@ -59,6 +59,7 @@ class List
                     HabitGoal hGoal = new HabitGoal(points, name, description);
                     _goalList.Add(hGoal);
 
+                    program = 0;
                     Console.Clear();
                     Console.WriteLine("Goal Added\n");
                     break;
@@ -83,6 +84,7 @@ class List
                     ReoccurringGoal rGoal = new ReoccurringGoal(points, name, description, numerator, denominator, pointBonus);
                     _goalList.Add(rGoal);
 
+                    program = 0;
                     Console.Clear();
                     Console.WriteLine("Goal Added\n");
                     break;
@@ -95,13 +97,39 @@ class List
         }
     }
 
+    public void ListGoals()
+    {
+        Console.Clear();
+        int count = 0;
 
+        Console.WriteLine("The goals are:");
+        foreach (Goal goal in _goalList)
+        {
+            count ++;
+            Console.Write(count + ".  ");
+            switch(goal)
+            {
+                case SimpleGoal:
+                    // GoalType[0], _name[1], _description[2], _points[3], _pointCount[4], _checkBox[5]
+                    Console.WriteLine($"[{goal.FileFormat()[5]}]  ({goal.FileFormat()[2]})  Points worth: {goal.FileFormat()[3]}");
+                break;
+                case HabitGoal:
+                    // GoalType[0], _name[1], _description[2], _points[3], _pointCount[4], _checkBox[5]
+                    Console.WriteLine($"[{goal.FileFormat()[5]}]  ({goal.FileFormat()[2]})  Points worth: {goal.FileFormat()[3]}");
+                break;
+                case ReoccurringGoal:
+                // GoalType[0], _name[1], _description[2], _points[3], _pointCount[4], _checkBox[5]
+                // _progressPoints[6],  _progressNumerator[7], _progressDenominator[8]
+                Console.WriteLine($"[{goal.FileFormat()[5]}]  ({goal.FileFormat()[2]})  {goal.FileFormat()[7]}/{goal.FileFormat()[8]}  Points per task {goal.FileFormat()[6]}  Points on completion: {goal.FileFormat()[3]}");
+                break;
+            }
+        }
 
-
-
-
-
-
+        if (_goalList.Count() == 0)
+        {
+            Console.WriteLine("There are no goals yet\n");
+        }
+    }
 
     public void SaveToFile()
     {
