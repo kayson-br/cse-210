@@ -48,9 +48,4 @@ class ReoccurringGoal : Goal
 
         return load;
     }
-
-    public override string PrintProgress ()
-    {
-        
-    }
 }

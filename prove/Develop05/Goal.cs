@@ -7,6 +7,8 @@ abstract class Goal
     private int _points;
     private string _name;
     private string _description; 
+    private int _pointCount = 0;
+    // totalpoints
 
 
     // CONSTRUCTOR
@@ -44,8 +46,12 @@ abstract class Goal
         return _points;
     }
 
+    public void SetPointCount(int add)
+    {
+        _pointCount += add;
+    }
+
 
     // ABSTRACTS
     public abstract List<string> FileFormat();
-    public abstract string PrintProgress();
 }

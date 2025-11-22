@@ -16,8 +16,4 @@ class HabitGoal : Goal
         
     }
 
-    public override void PrintProgress ()
-    {
-        
-    }
 }
