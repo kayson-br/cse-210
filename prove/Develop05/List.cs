@@ -16,6 +16,11 @@ class List
 
         while (program != 0)
         {
+            string name;
+            string description;
+            int points;
+            
+
             Console.Clear();
             Console.Write("\nSelect a goal type:\n" +
                             "\t1. Simple Goal\n" +
@@ -27,19 +32,63 @@ class List
 
             switch (input)
             {
-                case 7:
-                    program = 0;
+                case 1: // Simple Goal
+                    // CONSTRUCTOR: int points, string name, string description, int pointCount = 0, string checkBox = " "
+                    Console.WriteLine("Name of the goal: ");
+                    name = Console.ReadLine();
+                    Console.WriteLine("Description of the goal:");
+                    description = Console.ReadLine();
+                    Console.WriteLine("Points goal is worth at completion:");
+                    points = int.Parse(Console.ReadLine());
+
+                    SimpleGoal sGoal = new SimpleGoal(points, name, description);
+                    _goalList.Add(sGoal);
+
+                    Console.Clear();
+                    Console.WriteLine("Goal Added\n");
                     break;
-                case 1:
+                case 2: // Habit Goal
+                    // CONSTRUCTOR: int points, string name, string description, int pointCount = 0, string checkBox = " "
+                    Console.WriteLine("Name of the goal: ");
+                    name = Console.ReadLine();
+                    Console.WriteLine("Description of the goal:");
+                    description = Console.ReadLine();
+                    Console.WriteLine("Points goal is worth at completion:");
+                    points = int.Parse(Console.ReadLine());
+
+                    HabitGoal hGoal = new HabitGoal(points, name, description);
+                    _goalList.Add(hGoal);
+
+                    Console.Clear();
+                    Console.WriteLine("Goal Added\n");
                     break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
+                case 3: // Checklist Goal
+
+                    int numerator = 0;
+                    int denominator;
+                    int pointBonus;
+
+                    // CONSTRUCTOR: int points, string name, string description, int numerator, int denominator, int pointBonus, int pointCount = 0, string checkBox = " "
+                    Console.WriteLine("Name of the goal: ");
+                    name = Console.ReadLine();
+                    Console.WriteLine("Description of the goal:");
+                    description = Console.ReadLine();
+                    Console.WriteLine("Times until finished:");
+                    denominator = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Points after each goal completion:");
+                    pointBonus = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Bonus points for completing overall goal:");
+                    points = int.Parse(Console.ReadLine());
+
+                    ReoccurringGoal rGoal = new ReoccurringGoal(points, name, description, numerator, denominator, pointBonus);
+                    _goalList.Add(rGoal);
+
+                    Console.Clear();
+                    Console.WriteLine("Goal Added\n");
                     break;
                 default:
                     Console.Clear();
+                    Console.WriteLine("Please select an option\n");
                     break;
             }
             Console.Clear();
