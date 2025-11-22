@@ -40,7 +40,7 @@ class ReoccurringGoal : Goal
         return _progressDenominator;
     }
 
-    public int GetPorgressPoints()
+    public int GetProgressPoints()
     {
         return _progressPoints;
     }
