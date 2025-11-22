@@ -11,12 +11,13 @@ abstract class Goal
 
 
     // CONSTRUCTOR
-    public Goal(int points, string name, string description, int pointCount = 0)
+    public Goal(int points, string name, string description, int pointCount = 0, string checkBox = " ")
     {
         _points = points;
         _name = name;
         _description = description;
         _pointCount = pointCount;
+        _checkBox = checkBox;
     }
 
 
