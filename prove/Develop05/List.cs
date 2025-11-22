@@ -7,6 +7,53 @@ class List
 
 
     // MODULES
+
+    public void CreateGoal()
+    {
+        int program = 1;
+        string inputString;
+        int input;
+
+        while (program != 0)
+        {
+            Console.Clear();
+            Console.Write("\nSelect a goal type:\n" +
+                            "\t1. Simple Goal\n" +
+                            "\t2. Habit Goal\n" +
+                            "\t3. Checklist Goal\n" +
+                            "Select a choice from the menu: ");
+            inputString = Console.ReadLine();
+            input = int.Parse(inputString);
+
+            switch (input)
+            {
+                case 7:
+                    program = 0;
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                default:
+                    Console.Clear();
+                    break;
+            }
+            Console.Clear();
+        }
+    }
+
+
+
+
+
+
+
+
+
     public void SaveToFile()
     {
         Console.Write("\nPlease input a file name:\n  > ");
@@ -86,6 +133,7 @@ class List
                 case "SimpleGoal":
                     // 0-5 (indexes)
                     // LOAD IN: GoalType[0], _name[1], _description[2], _points[3], _pointCount[4], _checkBox[5]
+                    // CONSTRUCTOR: int points, string name, string description, int pointCount = 0, string checkBox = " "
                     SimpleGoal sGoal = new SimpleGoal(points, name, description, pointCount, checkBox);
                     _goalList.Add(sGoal);
                 break;
