@@ -3,8 +3,8 @@ using System;
 class SimpleGoal : Goal
 {
     // CONSTRUCTORS
-    public SimpleGoal(int points, string name, string description, int pointCount) : 
-    base(points, name, description, pointCount)
+    public SimpleGoal(int points, string name, string description, int pointCount = 0, string checkBox = " ") : 
+    base(points, name, description, pointCount, checkBox)
     {
 
     }

@@ -10,8 +10,8 @@ class ReoccurringGoal : Goal
 
     // CONSTRUCTORS
     public ReoccurringGoal(int points, string name, string description, int numerator, 
-                        int denominator, int pointBonus, int pointCount = 0) : 
-    base(points, name, description, pointCount)
+                        int denominator, int pointBonus, int pointCount = 0, string checkBox = " ") : 
+    base(points, name, description, pointCount, checkBox)
     {
         _progressNumerator = numerator;
         _progressDenominator = denominator;
@@ -34,7 +34,7 @@ class ReoccurringGoal : Goal
 
 
     // OVERRIDES
-    // GoalType, _name, _description, _progressPoints, _points, _progressNumerator, _progressDenominator
+    // GoalType, _name, _description, _points, _pointCount, _checkBox _progressPoints,  _progressNumerator, _progressDenominator
     public override List<string> FileFormat ()
     {
         string progressPoints = _progressPoints.ToString();
@@ -42,9 +42,10 @@ class ReoccurringGoal : Goal
         string progressDenominator = _progressDenominator.ToString();
         string pointCount = GetPointCount().ToString();
         string points = GetPoints().ToString();
+        string checkBox = GetCheckBox();
 
-        List<string> load = new List<string>{"ReoccurringGoal", GetName(), GetDescription(), progressPoints, 
-                                            points, progressNumerator, progressDenominator, pointCount}; 
+        List<string> load = new List<string>{"ReoccurringGoal", GetName(), GetDescription(), points, pointCount,
+                                            checkBox, progressPoints, progressNumerator, progressDenominator}; 
 
         return load;
     }

@@ -3,8 +3,8 @@ using System;
 class HabitGoal : Goal
 {
     // CONSTRUCTORS
-    public HabitGoal(int points, string name, string description, int pointCount = 0) : 
-    base(points, name, description, pointCount)
+    public HabitGoal(int points, string name, string description, int pointCount = 0, string checkBox = " ") : 
+    base(points, name, description, pointCount, checkBox)
     {
 
     }
