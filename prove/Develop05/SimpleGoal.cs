@@ -16,7 +16,6 @@ class SimpleGoal : Goal
     {
         string points = GetPoints().ToString();
         string pointCount = GetPointCount().ToString();
-
         List<string> load = new List<string>{"HabitGoal", GetName(), GetDescription(), points, pointCount, GetCheckBox()};
 
         return load;

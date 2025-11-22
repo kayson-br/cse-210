@@ -3,7 +3,7 @@ using System;
 class List
 {
     // ATTRIBUTES
-    List<Goal> _goalList = new List<Goal>();
+    private List<Goal> _goalList = new List<Goal>();
 
 
     // MODULES
@@ -26,8 +26,16 @@ class List
                                             $"~{goal.FileFormat()[4]}~{goal.FileFormat()[5]}~{goal.FileFormat()[6]}~{goal.FileFormat()[7]}");
                     break;
                     case "HabitGoal":
+                        // 0-5 (indexes)
+                        // GoalType, _name, _description, _points, _pointCount, _checkBox
+                        outputFile.WriteLine($"{goal.FileFormat()[0]}~{goal.FileFormat()[1]}~{goal.FileFormat()[2]}~{goal.FileFormat()[3]}" +
+                                            $"~{goal.FileFormat()[4]}~{goal.FileFormat()[5]}");
                     break;
                     case "SimpleGoal":
+                        // 0-5 (indexes)
+                        // GoalType, _name, _description, _points, _pointCount, _checkBox
+                        outputFile.WriteLine($"{goal.FileFormat()[0]}~{goal.FileFormat()[1]}~{goal.FileFormat()[2]}~{goal.FileFormat()[3]}" +
+                                            $"~{goal.FileFormat()[4]}~{goal.FileFormat()[5]}");
                     break;
                 }
             }
@@ -39,16 +47,10 @@ class List
         
     }
 
-    //Count total points     List.CountPOints();
-
 
     // GETTERS
     public List<Goal> GetGoals()
     {
-        return ;
+        return _goalList;
     }
-
-
-    // SETTERS
-    // Create Goal
 }
