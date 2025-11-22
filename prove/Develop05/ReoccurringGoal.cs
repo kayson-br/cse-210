@@ -9,9 +9,9 @@ class ReoccurringGoal : Goal
 
 
     // CONSTRUCTORS
-    public ReoccurringGoal(int points, string name, string description, 
-                            int numerator, int denominator, int pointBonus) : 
-    base(points, name, description)
+    public ReoccurringGoal(int points, string name, string description, int numerator, 
+                        int denominator, int pointBonus, int pointCount = 0) : 
+    base(points, name, description, pointCount)
     {
         _progressNumerator = numerator;
         _progressDenominator = denominator;
@@ -20,19 +20,18 @@ class ReoccurringGoal : Goal
 
 
     // MODULES
-    public void SetProgress(string input)
+    public void SetProgress(int input)
     {
-        int add = int.Parse(input);
-
-        if (add + _progressNumerator >= _progressDenominator)
+        if (input + _progressNumerator >= _progressDenominator)
         {
             _progressNumerator = _progressDenominator;
         }
-        else if (add + _progressNumerator <= 0)
+        else if (input + _progressNumerator <= 0)
         {
             _progressNumerator = 0;
         }
     }
+
 
     // OVERRIDES
     // GoalType, _name, _description, _progressPoints, _points, _progressNumerator, _progressDenominator
@@ -41,10 +40,11 @@ class ReoccurringGoal : Goal
         string progressPoints = _progressPoints.ToString();
         string progressNumerator = _progressNumerator.ToString();
         string progressDenominator = _progressDenominator.ToString();
+        string pointCount = GetPointCount().ToString();
         string points = GetPoints().ToString();
 
         List<string> load = new List<string>{"ReoccurringGoal", GetName(), GetDescription(), progressPoints, 
-                                            points, progressNumerator, progressDenominator}; 
+                                            points, progressNumerator, progressDenominator, pointCount}; 
 
         return load;
     }

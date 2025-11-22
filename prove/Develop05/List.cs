@@ -20,10 +20,10 @@ class List
                 switch (goal.FileFormat()[0])
                 {
                     case "ReoccurringGoal":
-                        // 0-6 (indexes)
-                        // "ReoccurringGoal", GetName(), GetDescription(), progressPoints, points, progressNumerator, progressDenominator
+                        // 0-7 (indexes)
+                        // "ReoccurringGoal", GetName(), GetDescription(), progressPoints, points, progressNumerator, progressDenominator, pointCount
                         outputFile.WriteLine($"{goal.FileFormat()[0]}~{goal.FileFormat()[1]}~{goal.FileFormat()[2]}~{goal.FileFormat()[3]}" +
-                                            $"~{goal.FileFormat()[4]}~{goal.FileFormat()[5]}~{goal.FileFormat()[6]}");
+                                            $"~{goal.FileFormat()[4]}~{goal.FileFormat()[5]}~{goal.FileFormat()[6]}~{goal.FileFormat()[7]}");
                     break;
                     case "HabitGoal":
                     break;
@@ -52,14 +52,3 @@ class List
     // SETTERS
     // Create Goal
 }
-
-/*
-EternalGoal, name, description, points
-SimmpleGoal, name, description, points
-ReoccurringGoal, name, description, points
-RandomGoal, name, description, points
-*/
-
-// EternalGoal goal = new EternalGoal{name, description, points};
-// SimpleGoal goal = new SimpleGoal{name, description, points};
-// list.add(goal);

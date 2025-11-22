@@ -12,15 +12,16 @@ abstract class Goal
 
 
     // CONSTRUCTOR
-    public Goal(int points, string name, string description)
+    public Goal(int points, string name, string description, int pointCount = 0)
     {
         _points = points;
         _name = name;
         _description = description;
+        _pointCount = pointCount;
     }
 
 
-    // MODULES
+    // MODULES (Getters)
     public string GetName()
     {
         return _name;
@@ -31,11 +32,6 @@ abstract class Goal
         return _description;
     }
 
-    public void SetCheckBox()
-    {
-        _checkBox = "x";
-    }
-
     public string GetCheckBox()
     {
         return _checkBox;
@@ -44,6 +40,18 @@ abstract class Goal
     public int GetPoints()
     {
         return _points;
+    }
+
+    public int GetPointCount()
+    {
+        return _pointCount;
+    }
+
+
+    // MODULES (Getters)
+    public void SetCheckBox()
+    {
+        _checkBox = "x";
     }
 
     public void SetPointCount(int add)
