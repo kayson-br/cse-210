@@ -101,11 +101,15 @@ class List
     {
         Console.Clear();
         int count = 0;
+        int totalPoints = 0;
+
+        Console.WriteLine($"Total points: {totalPoints}");
 
         Console.WriteLine("The goals are:");
         foreach (Goal goal in _goalList)
         {
             count ++;
+            totalPoints += goal.GetPointCount();
             Console.Write(count + ".  ");
             switch(goal)
             {
@@ -120,16 +124,80 @@ class List
                 case ReoccurringGoal:
                 // GoalType[0], _name[1], _description[2], _points[3], _pointCount[4], _checkBox[5]
                 // _progressPoints[6],  _progressNumerator[7], _progressDenominator[8]
-                Console.WriteLine($"[{goal.FileFormat()[5]}]  ({goal.FileFormat()[2]})  {goal.FileFormat()[7]}/{goal.FileFormat()[8]}  Points per task {goal.FileFormat()[6]}  Points on completion: {goal.FileFormat()[3]}");
+                Console.WriteLine($"[{goal.FileFormat()[5]}]  ({goal.FileFormat()[2]})  {goal.FileFormat()[7]}/{goal.FileFormat()[8]}\n\tPoints per task: {goal.FileFormat()[6]}  Points on completion: {goal.FileFormat()[3]}");
                 break;
             }
         }
 
         if (_goalList.Count() == 0)
         {
-            Console.WriteLine("There are no goals yet\n");
+            Console.WriteLine("There are no goals yet");
+        }
+
+        Console.WriteLine($"\nTotal points: {totalPoints}\n");
+    }
+
+    public void RecordEvent()
+    {
+        Console.Clear();
+
+        ListGoals();
+        Console.WriteLine("Which goal did you complete: ");
+        int input = int.Parse(Console.ReadLine()) - 1;
+
+        int add = _goalList[input].GetPoints();
+        int currentPoints = _goalList[input].GetPointCount();
+
+        switch (_goalList[input])
+        {
+            case SimpleGoal:
+                if (_goalList[input].GetCheckBox() == " ")
+                {
+                    _goalList[input].SetCheckBox();
+                    _goalList[input].SetPointCount(add);
+                }
+
+                Console.Clear();
+                Console.WriteLine("Goal completion noted:\n");
+            break;
+            case HabitGoal:
+                _goalList[input].SetPointCount(add + currentPoints);
+            
+                Console.Clear();
+                Console.WriteLine("Goal completion noted:\n");
+            break;
+            case ReoccurringGoal:
+                // add one to numerator AND add to bonusPoints AND check box with extra points (if lower than denominator) 
+                int numerator = int.Parse(_goalList[input].FileFormat()[7]);
+                int denominator = int.Parse(_goalList[input].FileFormat()[8]);
+
+                if (numerator < denominator)
+                {
+                    if (_goalList[input] is ReoccurringGoal goal)
+                    {
+                        goal.SetNumerator(numerator + 1);
+
+                        if (numerator == denominator - 1)
+                        {
+                            goal.SetPointCount(currentPoints + goal.GetProgressPoints() + add);
+                            goal.SetCheckBox();
+                        }
+                        else
+                        {
+                            goal.SetPointCount(currentPoints + goal.GetProgressPoints());
+                        }
+                    }
+                }
+
+                Console.Clear();
+                Console.WriteLine("Goal completion noted:\n");
+            break;
         }
     }
+
+
+
+
 
     public void SaveToFile()
     {

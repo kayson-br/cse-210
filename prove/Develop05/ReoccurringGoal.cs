@@ -20,16 +20,29 @@ class ReoccurringGoal : Goal
 
 
     // MODULES
-    public void SetProgress(int input)
+    public void SetNumerator(int input)
     {
-        if (input + _progressNumerator >= _progressDenominator)
-        {
-            _progressNumerator = _progressDenominator;
-        }
-        else if (input + _progressNumerator <= 0)
-        {
-            _progressNumerator = 0;
-        }
+        _progressNumerator = input;
+    }
+
+    public void SetDenominator(int input)
+    {
+        _progressDenominator = input;
+    }
+
+    public int GetNumerator()
+    {
+        return _progressNumerator;
+    }
+
+    public int GetDenominator()
+    {
+        return _progressDenominator;
+    }
+
+    public int GetPorgressPoints()
+    {
+        return _progressPoints;
     }
 
 
