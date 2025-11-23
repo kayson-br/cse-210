@@ -9,9 +9,11 @@ class Program
         string inputString;
         int input;
 
+        List goals = new List();
+        Console.Clear();
+
         while (program != 0)
         {
-            Console.Clear();
             Console.Write("\nMenu Options:\n" +
                             "\t1. Create New Goal\n" +
                             "\t2. List Goals\n" +
@@ -30,20 +32,27 @@ class Program
                     program = 0;
                     break;
                 case 1:
+                    goals.CreateGoal();
                     break;
                 case 2:
+                    goals.ListGoals();
                     break;
                 case 3:
+                    goals.SaveToFile();
                     break;
                 case 4:
+                    goals.LoadFromFile();
+                    break;
+                case 5:
+                    goals.RecordEvent();
+                    break;
+                case 6:
+                    goals.Clear(); //EXTRA CREDIT
                     break;
                 default:
                     Console.Clear();
                     break;
             }
-            Console.Clear();
         }
-
-
     }
 }

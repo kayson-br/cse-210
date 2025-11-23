@@ -7,7 +7,6 @@ class List
 
 
     // MODULES
-
     public void CreateGoal()
     {
         int program = 1;
@@ -60,8 +59,6 @@ class List
                     _goalList.Add(hGoal);
 
                     program = 0;
-                    Console.Clear();
-                    Console.WriteLine("Goal Added\n");
                     break;
                 case 3: // Checklist Goal
 
@@ -85,16 +82,15 @@ class List
                     _goalList.Add(rGoal);
 
                     program = 0;
-                    Console.Clear();
-                    Console.WriteLine("Goal Added\n");
                     break;
                 default:
                     Console.Clear();
                     Console.WriteLine("Please select an option\n");
                     break;
             }
-            Console.Clear();
         }
+        Console.Clear();
+        Console.WriteLine("Goal Added\n");
     }
 
     public void ListGoals()
@@ -103,9 +99,7 @@ class List
         int count = 0;
         int totalPoints = 0;
 
-        Console.WriteLine($"Total points: {totalPoints}");
-
-        Console.WriteLine("The goals are:");
+        Console.WriteLine("\nThe goals are:");
         foreach (Goal goal in _goalList)
         {
             count ++;
@@ -129,11 +123,6 @@ class List
             }
         }
 
-        if (_goalList.Count() == 0)
-        {
-            Console.WriteLine("There are no goals yet");
-        }
-
         Console.WriteLine($"\nTotal points: {totalPoints}\n");
     }
 
@@ -145,53 +134,53 @@ class List
         Console.WriteLine("Which goal did you complete: ");
         int input = int.Parse(Console.ReadLine()) - 1;
 
-        int add = _goalList[input].GetPoints();
-        int currentPoints = _goalList[input].GetPointCount();
-
-        switch (_goalList[input])
+        if (input >= 0 && input < _goalList.Count())
         {
-            case SimpleGoal:
-                if (_goalList[input].GetCheckBox() == " ")
-                {
-                    _goalList[input].SetCheckBox();
-                    _goalList[input].SetPointCount(add);
-                }
+            int add = _goalList[input].GetPoints();
+            int currentPoints = _goalList[input].GetPointCount();
 
-                Console.Clear();
-                Console.WriteLine("Goal completion noted:\n");
-            break;
-            case HabitGoal:
-                _goalList[input].SetPointCount(add + currentPoints);
-            
-                Console.Clear();
-                Console.WriteLine("Goal completion noted:\n");
-            break;
-            case ReoccurringGoal:
-                // add one to numerator AND add to bonusPoints AND check box with extra points (if lower than denominator) 
-                int numerator = int.Parse(_goalList[input].FileFormat()[7]);
-                int denominator = int.Parse(_goalList[input].FileFormat()[8]);
-
-                if (numerator < denominator)
-                {
-                    if (_goalList[input] is ReoccurringGoal goal)
+            switch (_goalList[input])
+            {
+                case SimpleGoal:
+                    if (_goalList[input].GetCheckBox() == " ")
                     {
-                        goal.SetNumerator(numerator + 1);
+                        _goalList[input].SetCheckBox();
+                        _goalList[input].SetPointCount(add);
+                    }
+                break;
+                case HabitGoal:
+                    _goalList[input].SetPointCount(add + currentPoints);
+                break;
+                case ReoccurringGoal:
+                    int numerator = int.Parse(_goalList[input].FileFormat()[7]);
+                    int denominator = int.Parse(_goalList[input].FileFormat()[8]);
 
-                        if (numerator == denominator - 1)
+                    if (numerator < denominator)
+                    {
+                        if (_goalList[input] is ReoccurringGoal goal)
                         {
-                            goal.SetPointCount(currentPoints + goal.GetProgressPoints() + add);
-                            goal.SetCheckBox();
-                        }
-                        else
-                        {
-                            goal.SetPointCount(currentPoints + goal.GetProgressPoints());
+                            goal.SetNumerator(numerator + 1);
+
+                            if (numerator == denominator - 1)
+                            {
+                                goal.SetPointCount(goal.GetProgressPoints() + add);
+                                goal.SetCheckBox();
+                            }
+                            else
+                            {
+                                goal.SetPointCount(goal.GetProgressPoints());
+                            }
                         }
                     }
-                }
-
-                Console.Clear();
-                Console.WriteLine("Goal completion noted:\n");
-            break;
+                break;
+            }
+            Console.Clear();
+            Console.WriteLine("Goal completion noted:\n");
+        }
+        else
+        {
+            Console.Clear();
+            Console.WriteLine("Invalid Input\n");
         }
     }
 
@@ -201,6 +190,7 @@ class List
 
     public void SaveToFile()
     {
+        Console.Clear();
         Console.Write("\nPlease input a file name:\n  > ");
         string filename = Console.ReadLine();
 
@@ -215,7 +205,7 @@ class List
                         // 0-7 (indexes)
                         // GoalType, GetName(), GetDescription(), progressPoints, points, progressNumerator, progressDenominator, pointCount
                         outputFile.WriteLine($"{goal.FileFormat()[0]}~{goal.FileFormat()[1]}~{goal.FileFormat()[2]}~{goal.FileFormat()[3]}" +
-                                            $"~{goal.FileFormat()[4]}~{goal.FileFormat()[5]}~{goal.FileFormat()[6]}~{goal.FileFormat()[7]}");
+                                            $"~{goal.FileFormat()[4]}~{goal.FileFormat()[5]}~{goal.FileFormat()[6]}~{goal.FileFormat()[7]}~{goal.FileFormat()[8]}");
                     break;
                     case "HabitGoal":
                         // 0-5 (indexes)
@@ -232,11 +222,14 @@ class List
                 }
             }
         }
+        Console.Clear();
+        Console.WriteLine("File Saved\n");
     }
 
     public void LoadFromFile()
     {
         // Input Filename
+        Console.Clear();
         Console.Write("\nPlease input a file name:\n  > ");
         string filename = Console.ReadLine();
 
@@ -284,12 +277,16 @@ class List
                 break;
             }
         }
+        Console.Clear();
+        Console.WriteLine("Goals loaded from file\n");
     }
 
-
-    // GETTERS
-    public List<Goal> GetGoals()
+    //EXTRA CREDIT
+    public void Clear()
     {
-        return _goalList;
+        List<Goal> clear = new List<Goal>();
+        _goalList = clear;
+        Console.Clear();
+        Console.WriteLine("Goals cleared\n");
     }
 }
