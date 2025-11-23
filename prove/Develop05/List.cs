@@ -109,16 +109,16 @@ class List
             {
                 case SimpleGoal:
                     // GoalType[0], _name[1], _description[2], _points[3], _pointCount[4], _checkBox[5]
-                    Console.WriteLine($"[{goal.FileFormat()[5]}]  ({goal.FileFormat()[2]})  Points worth: {goal.FileFormat()[3]}");
+                    Console.WriteLine($"[{goal.FileFormat()[5]}]  {goal.FileFormat()[1]} ({goal.FileFormat()[2]})  Points worth: {goal.FileFormat()[3]}");
                 break;
                 case HabitGoal:
                     // GoalType[0], _name[1], _description[2], _points[3], _pointCount[4], _checkBox[5]
-                    Console.WriteLine($"[{goal.FileFormat()[5]}]  ({goal.FileFormat()[2]})  Points worth: {goal.FileFormat()[3]}");
+                    Console.WriteLine($"[{goal.FileFormat()[5]}]  {goal.FileFormat()[1]} ({goal.FileFormat()[2]})  Points worth: {goal.FileFormat()[3]}");
                 break;
                 case ReoccurringGoal:
                 // GoalType[0], _name[1], _description[2], _points[3], _pointCount[4], _checkBox[5]
                 // _progressPoints[6],  _progressNumerator[7], _progressDenominator[8]
-                Console.WriteLine($"[{goal.FileFormat()[5]}]  ({goal.FileFormat()[2]})  {goal.FileFormat()[7]}/{goal.FileFormat()[8]}\n\tPoints per task: {goal.FileFormat()[6]}  Points on completion: {goal.FileFormat()[3]}");
+                Console.WriteLine($"[{goal.FileFormat()[5]}]  {goal.FileFormat()[1]} ({goal.FileFormat()[2]})  {goal.FileFormat()[7]}/{goal.FileFormat()[8]}\n\tPoints per task: {goal.FileFormat()[6]}  Points on completion: {goal.FileFormat()[3]}");
                 break;
             }
         }
@@ -183,10 +183,6 @@ class List
             Console.WriteLine("Invalid Input\n");
         }
     }
-
-
-
-
 
     public void SaveToFile()
     {
