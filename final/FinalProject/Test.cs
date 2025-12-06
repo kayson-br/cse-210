@@ -8,8 +8,8 @@ public class Test : Work
 
 
     // CONSTRUCTOR
-    public Test(string workType, string dueDate, string status, string title, string description, string questions, string points)
-        : base(workType, dueDate, status, title, description)
+    public Test(string dueDate, string status, string title, string description, string questions, string points)
+        : base("Test", dueDate, status, title, description)
     {
         _questions = questions;
         _points = points;
