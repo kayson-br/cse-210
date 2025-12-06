@@ -8,8 +8,8 @@ public class Quiz : Work
 
 
     // CONSTRUCTOR
-    public Quiz(string dueDate, string status, string title, string description, string questions, string points)
-        : base("Quiz", dueDate, status, title, description)
+    public Quiz(string dueDate, string title, string description, string questions, string points)
+        : base("Quiz", dueDate, title, description)
     {
         _questions = questions;
         _points = points;
@@ -22,6 +22,6 @@ public class Quiz : Work
         List<string> info = GetParentInfo();
         info.Add(_questions);
         info.Add(_points);
-        return info; // _workType, _dueDate, _status, _title, _description, _questions, _points
+        return info; // _dueDate, _title, _description, _questions, _points
     }
 }

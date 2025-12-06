@@ -3,19 +3,18 @@ using System;
 public abstract class Work
 {
     // ATTRIBUTES
-    protected string _workType;
-    protected string _dueDate;
-    protected string _status;
-    protected string _title;
-    protected string _description;
+    private string _workType;
+    private string _dueDate;
+    private string _status = " ";
+    private string _title;
+    private string _description;
 
 
     // CONSTRUCTOR
-    public Work(string workType, string dueDate, string status, string title, string description)
+    public Work(string workType, string dueDate, string title, string description)
     {
         _workType = workType;
         _dueDate = dueDate;
-        _status = status;
         _title = title;
         _description = description;
     }

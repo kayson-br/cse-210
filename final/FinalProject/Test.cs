@@ -8,8 +8,8 @@ public class Test : Work
 
 
     // CONSTRUCTOR
-    public Test(string dueDate, string status, string title, string description, string questions, string points)
-        : base("Test", dueDate, status, title, description)
+    public Test(string dueDate, string title, string description, string questions, string points)
+        : base("Test", dueDate, title, description)
     {
         _questions = questions;
         _points = points;
@@ -22,6 +22,6 @@ public class Test : Work
         List<string> info = GetParentInfo();
         info.Add(_questions);
         info.Add(_points);
-        return info; // _workType, _dueDate, _status, _title, _description, _questions, _points
+        return info; // _dueDate, _title, _description, _questions, _points
     }
 }
