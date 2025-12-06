@@ -19,16 +19,13 @@ public abstract class Work
 
     public void UpdateStatus()
     {
-        Console.Write("Enter new status: ");
-        _status = Console.ReadLine();
+        _status = "X";
     }
 
     public List<string> GetParentInfo()
     {
-        return new List<string>
-        {
-            _workType, _dueDate, _status, _title, _description
-        };
+        List<string> list = new List<string>{_workType, _dueDate, _status, _title, _description};
+        return list;
     }
 
     public abstract List<string> GetWorkInfo();
