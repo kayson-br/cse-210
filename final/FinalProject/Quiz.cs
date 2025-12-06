@@ -19,9 +19,9 @@ public class Quiz : Work
     // OVERRIDES
     public override List<string> GetWorkInfo()
     {
-        var info = GetParentInfo();
+        List<string> info = GetParentInfo();
         info.Add(_questions);
         info.Add(_points);
-        return info;
+        return info; // _workType, _dueDate, _status, _title, _description, _questions, _points
     }
 }
