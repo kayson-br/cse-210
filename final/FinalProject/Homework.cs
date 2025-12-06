@@ -7,8 +7,8 @@ public class Homework : Work
 
 
     // CONSTRUCTORS
-    public Homework(string workType, string dueDate, string status, string title, string description, string points)
-        : base(workType, dueDate, status, title, description)
+    public Homework(string dueDate, string status, string title, string description, string points)
+        : base("Homework", dueDate, status, title, description)
     {
         _points = points;
     }
