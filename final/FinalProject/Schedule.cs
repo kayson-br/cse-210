@@ -21,14 +21,12 @@ public class Schedule
             return null;
         }
 
-
             // Display Subjects
         Console.WriteLine("\nSelect a subject:");
         for (int i = 0; i < _subjectList.Count; i++)
         {
             Console.WriteLine($"{i + 1}.)  {_subjectList[i].GetSubjectTitle()}");
         }
-
 
             // Grab Subject Index
         Console.Write("Enter choice: ");
@@ -45,6 +43,34 @@ public class Schedule
         }
     }
 
+    private void DisplayWorkItem(Work work)
+    {
+        List<string> info = work.GetWorkInfo();
+
+        string workType = info[0];
+        string month = info[1];
+        string day = info[2];
+        string status = info[3];
+        string title = info[4];
+        string desc = info[5];
+
+        Console.WriteLine($">> {title} ({workType})");
+        Console.WriteLine($"\tDue: {month}/{day}");
+        Console.WriteLine($"\tCompleted: {status}");
+        Console.WriteLine($"\tDescription: {desc}");
+
+        if (workType == "Test" || workType == "Quiz")
+        {
+            Console.WriteLine($"\tQuestions: {info[6]}");
+            Console.WriteLine($"\tPoints: {info[7]}");
+        }
+        else if (workType == "Homework")
+        {
+            Console.WriteLine($"\tPoints: {info[6]}");
+        }
+    }
+
+
 
     // MODULES (Private)
     public void AddSubject()
@@ -59,7 +85,26 @@ public class Schedule
 
     public void DisplayAll()
     {
+        if (_subjectList.Count == 0)
+        {
+            Console.WriteLine("No subjects added yet");
+            return;
+        }
 
+        foreach (Subject subject in _subjectList)
+        {
+            Console.WriteLine($"\n---- {subject.GetSubjectTitle()} ----");
+
+            List<Work> works = subject.GetWorkList();
+
+            if (works.Count == 0)
+            {
+                Console.WriteLine("\t No Work Added");
+            }
+
+            foreach (Work work in works)
+            DisplayWorkItem(work);
+        }
     }
 
     public void DisplayUrgent()
