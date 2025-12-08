@@ -94,16 +94,17 @@ public class Schedule
         foreach (Subject subject in _subjectList)
         {
             Console.WriteLine($"\n---- {subject.GetSubjectTitle()} ----");
-
             List<Work> works = subject.GetWorkList();
 
             if (works.Count == 0)
             {
-                Console.WriteLine("\t No Work Added");
+                Console.WriteLine("\tNo Work Added");
             }
 
             foreach (Work work in works)
-            DisplayWorkItem(work);
+            {
+                DisplayWorkItem(work);
+            }
         }
     }
 
@@ -114,7 +115,26 @@ public class Schedule
 
     public void DisplaySubject()
     {
+        if (_subjectList.Count == 0)
+        {
+            Console.WriteLine("No subjects added yet");
+            return;
+        }
 
+        Subject subject = SelectSubject();
+        Console.WriteLine($"\n---- {subject.GetSubjectTitle()} ----");
+        List<Work> works = subject.GetWorkList();
+
+        if (works.Count == 0)
+        {
+            Console.WriteLine("\tNo Work Added");
+            return;
+        }
+
+        foreach (Work work in works)
+        {
+            DisplayWorkItem(work);
+        }
     }
 
     public void AddWork()
