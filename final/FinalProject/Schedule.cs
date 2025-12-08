@@ -49,7 +49,12 @@ public class Schedule
     // MODULES (Private)
     public void AddSubject()
     {
+        Console.Write("Enter subject name: ");
+        string name = Console.ReadLine();
 
+        Subject subject = new Subject(name);
+        _subjectList.Add(subject);
+        Console.WriteLine($"Subject \"{name}\" added");
     }
 
     public void DisplayAll()
