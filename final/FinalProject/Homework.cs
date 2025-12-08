@@ -7,8 +7,8 @@ public class Homework : Work
 
 
     // CONSTRUCTORS
-    public Homework(string dueDate, string title, string description, string points)
-        : base("Homework", dueDate, title, description)
+    public Homework( string dueDateMonth, string dueDateDay, string title, string description, string points)
+        : base("Homework", dueDateMonth, dueDateDay, title, description)
     {
         _points = points;
     }
@@ -19,6 +19,6 @@ public class Homework : Work
     {
         List<string> info = GetParentInfo();
         info.Add(_points);
-        return info; // _dueDate, _title, _description, _points
+        return info; // _dueDateMonth, _dueDateDay, _title, _description, _points
     }
 }

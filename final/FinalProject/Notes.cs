@@ -3,14 +3,14 @@ using System;
 public class Notes : Work
 {
     // CONSTRUCTOR
-    public Notes(string dueDate, string title, string description)
-        : base("Notes", dueDate, title, description)
+    public Notes( string dueDateMonth, string dueDateDay, string title, string description)
+        : base("Notes", dueDateMonth, dueDateDay, title, description)
     {}
 
 
     // OVERRIDES
     public override List<string> GetWorkInfo()
     {
-        return GetParentInfo(); // _dueDate, _title, _description
+        return GetParentInfo(); // _dueDateMonth, _dueDateDay, _title, _description
     }
 }

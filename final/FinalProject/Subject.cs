@@ -31,14 +31,16 @@ public class Subject
         string title = Console.ReadLine();
         Console.Write("Description: ");
         string desc = Console.ReadLine();
-        Console.Write("Due Date: ");
-        string date = Console.ReadLine();
+        Console.Write("Due Date Month (Integer): ");
+        string dateMonth = Console.ReadLine();
+        Console.Write("Due Date Day (Integer): ");
+        string dateDay = Console.ReadLine();
         Console.Write("Questions (Integer): ");
         string questions = Console.ReadLine();
         Console.Write("Points (Integer): ");
         string points = Console.ReadLine();
 
-        Test test = new Test(date, title, desc, questions, points);
+        Test test = new Test(dateMonth, dateDay, title, desc, questions, points);
         _workList.Add(test);
     }
 
@@ -48,12 +50,14 @@ public class Subject
         string title = Console.ReadLine();
         Console.Write("Description: ");
         string desc = Console.ReadLine();
-        Console.Write("Due Date: ");
-        string date = Console.ReadLine();
+        Console.Write("Due Date Month (Integer): ");
+        string dateMonth = Console.ReadLine();
+        Console.Write("Due Date Day (Integer): ");
+        string dateDay = Console.ReadLine();
         Console.Write("Points (Integer): ");
         string points = Console.ReadLine();
 
-        Homework homework = new Homework(date, title, desc, points);
+        Homework homework = new Homework(dateMonth, dateDay, title, desc, points);
         _workList.Add(homework);
     }
 
@@ -63,14 +67,16 @@ public class Subject
         string title = Console.ReadLine();
         Console.Write("Description: ");
         string desc = Console.ReadLine();
-        Console.Write("Due Date: ");
-        string date = Console.ReadLine();
+        Console.Write("Due Date Month (Integer): ");
+        string dateMonth = Console.ReadLine();
+        Console.Write("Due Date Day (Integer): ");
+        string dateDay = Console.ReadLine();
         Console.Write("Questions (Integer): ");
         string questions = Console.ReadLine();
         Console.Write("Points (Integer): ");
         string points = Console.ReadLine();
 
-        Quiz quiz = new Quiz(date, title, desc, questions, points);
+        Quiz quiz = new Quiz(dateMonth, dateDay, title, desc, questions, points);
         _workList.Add(quiz);
     }
 
@@ -80,10 +86,12 @@ public class Subject
         string title = Console.ReadLine();
         Console.Write("Description: ");
         string desc = Console.ReadLine();
-        Console.Write("Due Date: ");
-        string date = Console.ReadLine();
+        Console.Write("Due Date Month (Integer): ");
+        string dateMonth = Console.ReadLine();
+        Console.Write("Due Date Day (Integer): ");
+        string dateDay = Console.ReadLine();
 
-        Task task = new Task(date, title, desc);
+        Task task = new Task(dateMonth, dateDay, title, desc);
         _workList.Add(task);
     }
 
@@ -93,10 +101,12 @@ public class Subject
         string title = Console.ReadLine();
         Console.Write("Description: ");
         string desc = Console.ReadLine();
-        Console.Write("Due Date: ");
-        string date = Console.ReadLine();
+        Console.Write("Due Date Month (Integer): ");
+        string dateMonth = Console.ReadLine();
+        Console.Write("Due Date Day (Integer): ");
+        string dateDay = Console.ReadLine();
 
-        Notes notes = new Notes(date, title, desc);
+        Notes notes = new Notes(dateMonth, dateDay, title, desc);
         _workList.Add(notes);
     }
 
