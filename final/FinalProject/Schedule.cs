@@ -178,6 +178,15 @@ public class Schedule
 
     public void ClearWork()
     {
+        if (_subjectList.Count == 0)
+        {
+            Console.WriteLine("No subjects added yet");
+            return;
+        }
 
+        Subject subject = SelectSubject();
+        
+        subject.Clear();
+        Console.WriteLine($"All work cleared from {subject.GetSubjectTitle()}");
     }
 }
