@@ -1,5 +1,10 @@
 using System;
 
+/*
+        EXTRA CREDIT: This program also contains an additional function in the menu to clear the goals list
+*/
+
+
 class Program
 {
     static void Main(string[] args)
