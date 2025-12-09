@@ -71,7 +71,6 @@ public class Schedule
     }
 
 
-
     // MODULES (Private)
     public void AddSubject()
     {
@@ -137,7 +136,7 @@ public class Schedule
                         statusText = "(OVERDUE)";
                     }
 
-                    Console.WriteLine($"{subject.GetSubjectTitle()} -> {info[4]} {statusText}  (Due {month}/{day})");
+                    Console.WriteLine($"{subject.GetSubjectTitle()} --> {info[4]} {statusText}  (Due {month}/{day})");
                 }
             }
         }
@@ -173,7 +172,46 @@ public class Schedule
 
     public void AddWork()
     {
+        if (_subjectList.Count == 0)
+        {
+            Console.WriteLine("No subjects added yet");
+            return;
+        }
 
+        Subject subject = SelectSubject();
+
+        Console.WriteLine("\nSelect Work Type:");
+        Console.WriteLine(" 1.)  Test");
+        Console.WriteLine(" 2.)  Quiz");
+        Console.WriteLine(" 3.)  Homework");
+        Console.WriteLine(" 4.)  Task");
+        Console.WriteLine(" 5.)  Notes");
+        Console.Write("Choice: ");
+
+        string choice = Console.ReadLine();
+
+
+        switch (choice)
+        {
+            case "1": 
+                subject.AddTest(); 
+                break;
+            case "2": 
+                subject.AddQuiz(); 
+                break;
+            case "3": 
+                subject.AddHomework(); 
+                break;
+            case "4": 
+                subject.AddTask(); 
+                break;
+            case "5": 
+                subject.AddNotes(); 
+                break;
+            default: 
+                Console.WriteLine("Invalid Option"); 
+            break;
+        }
     }
 
     public void ClearWork()
@@ -185,7 +223,7 @@ public class Schedule
         }
 
         Subject subject = SelectSubject();
-        
+
         subject.Clear();
         Console.WriteLine($"All work cleared from {subject.GetSubjectTitle()}");
     }
