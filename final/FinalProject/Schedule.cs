@@ -110,7 +110,41 @@ public class Schedule
 
     public void DisplayUrgent()
     {
+        DateTime today = DateTime.Today;
+        bool foundAnything = false;
 
+        Console.WriteLine("\n---- Urgent Work (Past Due or Due Today) ----");
+
+        foreach (Subject subject in _subjectList)
+        {
+            foreach (Work work in subject.GetWorkList())
+            {
+                List<string> info = work.GetWorkInfo();
+                int month = int.Parse(info[1]);
+                int day = int.Parse(info[2]);
+
+                if ((today.Day <= day && today.Month == month) || today.Month < month)
+                {
+                    foundAnything = true;
+
+                    string statusText;
+                    if (today.Day == day)
+                    {
+                        statusText = "(DUE TODAY)";
+                    }
+                    else
+                    {
+                        statusText = "(OVERDUE)";
+                    }
+
+                    Console.WriteLine($"{subject.GetSubjectTitle()} -> {info[4]} {statusText}  (Due {month}/{day})");
+                }
+            }
+        }
+
+        if (foundAnything == false){
+            Console.WriteLine("No urgent work found");
+        }
     }
 
     public void DisplaySubject()
