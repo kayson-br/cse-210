@@ -38,7 +38,7 @@ public class Schedule
         }
         else
         {
-            Console.WriteLine("Invalid selection.");
+            Console.WriteLine("Invalid Option");
             return null;
         }
     }

@@ -25,27 +25,35 @@ class Program
             switch (input)
             {
                 case "1": 
+                    Console.Clear();
                     schedule.AddSubject(); 
                     break;
                 case "2": 
+                    Console.Clear();
                     schedule.AddWork(); 
                     break;
                 case "3": 
+                    Console.Clear();
                     schedule.DisplayAll(); 
                     break;
                 case "4": 
+                    Console.Clear();
                     schedule.DisplayUrgent(); 
                     break;
                 case "5": 
+                    Console.Clear();
                     schedule.DisplaySubject(); 
                     break;
                 case "6": 
+                    Console.Clear();
                     schedule.ClearWork(); 
                     break;
                 case "7": 
+                    Console.Clear();
                     run = false; 
                     break;
                 default: 
+                    Console.Clear();
                     Console.WriteLine("Invalid option."); 
                 break;
             }
