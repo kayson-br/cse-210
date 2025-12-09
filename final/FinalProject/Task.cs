@@ -7,6 +7,7 @@ public class Task : Work
         : base("Task", dueDateMonth, dueDateDay, title, description)
     {}
 
+
     // OVERRIDES
     public override List<string> GetWorkInfo()
     {

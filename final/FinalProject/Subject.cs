@@ -25,7 +25,7 @@ public class Subject
         return _workList;
     }
 
-    public void AddTest() // _dueDate, _title, _description, _questions, _points
+    public void AddTest() // _dueDateMonth, _dueDateDay, _title, _description, _questions, _points
     {
         Console.Write("Title: ");
         string title = Console.ReadLine();
@@ -44,7 +44,7 @@ public class Subject
         _workList.Add(test);
     }
 
-    public void AddHomework() // _dueDate, _title, _description, _points
+    public void AddHomework() // _dueDateMonth, _dueDateDay, _title, _description, _points
     {
         Console.Write("Title: ");
         string title = Console.ReadLine();
@@ -61,7 +61,7 @@ public class Subject
         _workList.Add(homework);
     }
 
-    public void AddQuiz() // _dueDate, _title, _description, _questions, _points
+    public void AddQuiz() // _dueDateMonth, _dueDateDay, _title, _description, _questions, _points
     {
         Console.Write("Title: ");
         string title = Console.ReadLine();
@@ -80,7 +80,7 @@ public class Subject
         _workList.Add(quiz);
     }
 
-    public void AddTask() // _dueDate, _title, _description
+    public void AddTask() // _dueDateMonth, _dueDateDay, _title, _description
     {
         Console.Write("Title: ");
         string title = Console.ReadLine();
@@ -95,7 +95,7 @@ public class Subject
         _workList.Add(task);
     }
 
-    public void AddNotes() // _dueDate, _title, _description
+    public void AddNotes() // _dueDateMonth, _dueDateDay, _title, _description
     {
         Console.Write("Title: ");
         string title = Console.ReadLine();
