@@ -1,5 +1,10 @@
 using System;
 
+/*
+        The extra credit can be found in the last menu item. 
+        There is a clear option to clear out all of the goals in the program's current list.
+*/
+
 class Program
 {
     static void Main(string[] args)
