@@ -1,5 +1,9 @@
 using System;
 
+/*
+        Extra Credit: I created an extra option in the menu to view number of times each activity has been run.
+*/
+
 class Program
 {
     static void Main(string[] args)
